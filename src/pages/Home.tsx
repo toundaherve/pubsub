@@ -22,7 +22,7 @@ const Home = () => {
                                     <Box marginBottom="20px">
                                         <Typography variant="h5">Join Twitter today.</Typography>
                                     </Box>
-                                    <Box>
+                                    <Box marginBottom={4}>
                                         <Grid container spacing={2}>
                                             <Grid item xs={12} sm={6} md={12} >
                                                 <Button fullWidth color="primary" variant="contained" size="large">Sign up</Button>
@@ -44,8 +44,8 @@ const Home = () => {
                     <Grid container spacing={2} justify="center">
                         {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17].map(n => {
                             return (
-                                <Grid item>
-                                    <Link key={n} href="#">Link</Link>
+                                <Grid item key={n}>
+                                    <Link href="#">Link</Link>
                                 </Grid>
                             )
                         })}
