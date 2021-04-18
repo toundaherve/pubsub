@@ -1,7 +1,15 @@
-import React, {ReactNode} from "react"
+import React, {ReactNode, useState} from "react"
 import { Button, Container, Box, Typography, TextField, Select, MenuItem, Link, FormControl, InputLabel } from "@material-ui/core"
+import Loading from "../components/Loading"
+
+type Task = "create_account" | "verify_code" | "add_password"
 
 const Signup = () => {
+    const [task, setTask] = useState<Task>("create_account")
+    const [loading, setLoading] = useState(false)
+
+    if (loading) return <Loading />
+
     return (
         <Container disableGutters maxWidth="sm">
             <Box minHeight="100vh" display="flex" flexDirection="column">
@@ -14,9 +22,9 @@ const Signup = () => {
                 </Box>
                 <Box flexGrow={1}>
                     <Box marginLeft={4} marginRight={4}>
-                        <CreateAccount />
-                        {/* <VerifyCode email="toundaherve@gmail.com" /> */}
-                        {/* <AddPassword /> */}
+                        {task === "create_account" && <CreateAccount />}
+                        {task === "verify_code" && <VerifyCode email="toundaherve@gmail.com" />}
+                        {task === "add_password" && <AddPassword />}
                     </Box> 
                 </Box>
             </Box>
